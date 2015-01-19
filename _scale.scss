@@ -1,0 +1,53 @@
+@mixin scale (
+  
+  $font-size: null, 
+  $margin-top: null, 
+  $margin-right: null, 
+  $margin-bottom: null, 
+  $margin-left: null, 
+  $padding-top: null, 
+  $padding-right: null, 
+  $padding-bottom: null, 
+  $padding-left: null, 
+  $height: null, 
+  $width: null) {
+  
+  font-size: $font-size;
+  margin-top: $margin-top;
+  margin-right: $margin-right;
+  margin-bottom: $margin-bottom;
+  margin-left: $margin-left;
+  padding-top: $padding-top;
+  padding-right: $padding-right;
+  padding-bottom: $padding-bottom;
+  padding-left: $padding-left;
+  height: $height;
+  width: $width;
+  
+  /* Media Queries */
+
+  @each $min-max, $breakpoint, $base-scale, $font-ratio, $space-ratio in $breakpoints {
+    @media (#{$min-max}: #{$breakpoint}) {
+      
+      @if not ($base-scale == null) {
+        @if $font-size and ($font-size == $base) { 
+          font-size: ($font-size * $base-scale);
+        }
+      }
+      @if not ($font-ratio == null) { 
+        @if $font-size and not ($font-size == $base) and not ($font-size == $xsmall) and not ($font-size == $xxsmall) {
+          font-size: ($font-size * $font-ratio);
+        }
+      }
+      @if not ($space-ratio == null)  { 
+        @if $margin-top { margin-top: ($margin-top * $space-ratio); }
+        @if $margin-bottom { margin-bottom: ($margin-bottom * $space-ratio); }
+        @if $padding-top { padding-top: ($padding-top * $space-ratio); }
+        @if $padding-bottom { padding-bottom: ($padding-bottom * $space-ratio); }
+        @if $height { height: ($height * $space-ratio); }
+        @if $width { width: ($width * $space-ratio); }
+      }
+      
+    }
+  }
+}

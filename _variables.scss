@@ -1,0 +1,24 @@
+/* Line Heights */
+$base-line-height: 1.4;
+$headings-line-height: 1.3;
+
+/* Base Modular Scale - Perfect Fifth Ratio - http://modularscale.com/scale/?px1=16&px2=&ra1=1.5&ra2=0 */
+$xxxlarge: 11.391rem;
+$xxlarge: 7.594rem;
+$xlarge: 5.063rem;
+$large: 3.375rem;
+$medium: 2.25rem;
+$small: 1.5rem;
+$base: 1rem;
+$xsmall: 0.667rem;
+$xxsmall: 0.444rem;
+
+/* Breakpoints & Ratios */
+/* $min-max, $breakpoint, $base-scale, $font-ratio, $space-ratio  */
+
+$breakpoints: 
+(max-width, 480px, 1.125, 0.6, 0.6), 
+(min-width, 480px, 1.2, 0.8, 1),
+(min-width, 720px, null, null, null),
+(min-width, 960px, 1.375, 1, 1),
+(min-width, 1300px, 1.5, 1.2, null);
